@@ -1,0 +1,48 @@
+import random
+
+# Function to randomly populate a list with integers between 10 and 50
+def populate_list(length):
+    """
+    Populates a list with integers between 10 and 50 randomly generated.
+    """
+    lst = []
+    for i in range(length):
+        lst.append(random.randint(10, 50))
+    return lst
+
+# Function to sum all the elements in a list
+def sum_list(lst):
+    """
+    Returns the sum of all elements in the list.
+    """
+    return sum(lst)
+
+# Loop to ask the user for input and validate it
+while True:
+    # Ask the user for an integer input between 5 and 15
+    user_entry = input("Please enter an integer number between 5 and 15: ")
+    try:
+        user_entry = int(user_entry)
+        # Check if the user's entry is within the valid range
+        if user_entry >= 5 and user_entry <= 15:
+            break
+        else:
+            # Print an error message if the user's entry is not within the valid range
+            print("Invalid entry. Please try again.")
+    except ValueError:
+        # Print an error message if the user's entry is not a valid integer
+        print("Invalid entry. Please try again.")
+
+# Call populate_list function to generate a random list of integers
+random_lst = populate_list(user_entry)
+
+# Print the elements of the random list to the console
+print("The elements of the array are:", end=" ")
+for num in random_lst:
+    print(num, end=" ")
+
+# Call sum_list function to get the total sum of the random list
+total_sum = sum_list(random_lst)
+
+# Print the total sum to the console
+print("\nThe sum is:", total_sum)
